@@ -11,8 +11,8 @@ import burgerBuilderReducer from './store/reducers/burgerBuilder';
 import orderReducer from './store/reducers/order';
 import authReducer from './store/reducers/auth';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
+const composeEnhancers = process.env.NODE_ENV==='development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose ;//adding environment variables so that redux dev tools are seen only in development mode
+//thunk is a package whch allows to write asynchronous code where we dispatch other actions once we are done.
 const rootReducer = combineReducers({
     burgerBuilder :  burgerBuilderReducer,
     order : orderReducer,
