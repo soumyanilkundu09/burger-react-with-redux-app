@@ -20,10 +20,36 @@ class BurgerBuilder extends Component {
         purchasing: false
     }
 
+    // constructor(props) 
+    // { 
+    //     super(props); 
+    //     this.state = { hello : "World!" }; 
+    // } 
+
+    componentWillMount () {
+        console.log("BurgerBuilder Component will mount");
+    }
+
+
+
     componentDidMount () {
-        console.log(this.props); 
+        //console.log(this.props); 
+        console.log("BurgerBuilder Component has mounted");
         this.props.onInitIngredients();
     }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("BurgerBuilder shouldComponentUpdate()");
+        return true;
+    }
+
+    componentWillUpdate() {
+        console.log("BurgerBuilder componentWillUpdate()");
+    }
+
+    componentDidUpdate() {
+        console.log("BurgerBuilder componentDidUpdate()");
+    } 
 
     updatePurchaseState ( ingredients ) {
         const sum = Object.keys( ingredients )
@@ -51,10 +77,12 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         this.props.onInitPurchase();
+        console.log("Burger builder routing props",this.props);
         this.props.history.push('/checkout');
     }
 
     render () {
+        console.log("Render function of Burger builder gets executed");
         const disabledInfo = {
             ...this.props.ings
         };

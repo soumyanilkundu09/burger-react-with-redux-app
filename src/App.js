@@ -68,9 +68,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignup: () => dispatch( actions.authCheckState() )// dipatch  authCheckState so that we are logged in while reloading the application
+    onTryAutoSignup: () => dispatch( actions.authCheckState() )// dispatch  authCheckState so that we are logged in while reloading the application
   };
 };
 
-export default withRouter(   connect( mapStateToProps, mapDispatchToProps )( App ) );
-//As for App component there is no router configured.So by default routing props is not vailable here. So we use withRouter which takes care of props even if there is no props available
+export default withRouter(connect( mapStateToProps, mapDispatchToProps )(App));
+//As for App component there is no router configured.So by default routing props is not available here. So we use withRouter which takes care of props even if there is no props available

@@ -5,6 +5,31 @@ import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component {
     // This could be a functional component, doesn't have to be a class
+
+    componentWillMount () {
+        console.log("[OrderSummary] Component will mount");
+    }
+
+
+
+    componentDidMount () {
+        //console.log(this.props); 
+        console.log("[OrderSummary] Component has mounted");
+        //this.props.onInitIngredients();
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("[OrderSummary] shouldComponentUpdate()");
+        return true;
+    }
+
+    // componentWillUpdate() {
+    //     console.log("BurgerBuilder componentWillUpdate()");
+    // }
+
+    componentDidUpdate() {
+        console.log("[OrderSummary] componentDidUpdate()");
+    } 
     componentWillUpdate() {
         console.log('[OrderSummary] WillUpdate');
     }

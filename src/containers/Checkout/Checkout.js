@@ -12,7 +12,8 @@ class Checkout extends Component {
     }
 
     checkoutContinuedHandler = () => {
-        this.props.history.replace('/checkout/contact-data');
+        //console.log("Checkout routing props",this.props);
+        this.props.history.replace('/checkout/contact-data');//replace replaces the existing pathe with the new path while push action pushes one path over another buidling a tree like structure and hence on going back the paths are popped out accoedingly
     }
 
     render() {
